@@ -19,13 +19,9 @@ fetch("https://opentdb.com/api.php?amount=10&type=multiple").then(res=>{
             answer:pos
           }
       })
-      console.log(questions);
         startGame();
       
 })
-
-
-console.log(totalQuestions)
 
 var score=0;
 var mostRecentScore;
@@ -80,10 +76,11 @@ var startTime =()=>{
 }
 var stopTime=()=>{
     var i;
-    for(i=0;i<all.length;i++)all[i].clearInterval(all[i]);
+    for(i=0;i<all.length;i++)clearInterval(all[i]);
+    all=[];
 }
 getNewQuestion= ()=>{
-    clearInterval(startTime);
+   
     if(questionsAvailable.length==0 ||( (MAX_QUESTION+1)===numberOfQuesions))
         document.location.assign("/quizAppGame/end.html");
     else{
@@ -97,7 +94,6 @@ getNewQuestion= ()=>{
             spinner.classList.add("hidden");
             game.classList.remove("hidden");
             numberOfQuesions++;
-            console.log(numberOfQuesions + " "+questionsAvailable.length+" "+progresSatus)
             progresSatus.style.width=`${(numberOfQuesions/MAX_QUESTION)*100}%`
                 var questionIndex=Math.floor(Math.random()*questionsAvailable.length);
                 questionSelected=questionsAvailable[questionIndex];
@@ -129,10 +125,11 @@ choices.forEach(choice=>{
         scoreText.innerText=""+score;
         clickedChoice.classList.add(appliedClass);
         t=20;
+        
         stopTime();
         setTimeout(()=>{
             clickedChoice.classList.remove(appliedClass);
-                getNewQuestion();
+            getNewQuestion();
 
         },500);
     })
