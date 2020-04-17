@@ -2,6 +2,8 @@ var questions;
 var totalQuestions;
 var numberOfQuesions=0;
 var time=document.getElementById("t");
+var spinner = document.getElementById("spinner");
+spinner.classList.add("hidden");
 fetch("https://opentdb.com/api.php?amount=10&type=multiple").then(res=>{
     return res.json();
 }).then(loadData=>{
@@ -52,7 +54,7 @@ var questions=[
     }
 ];
 */
-var spinner = document.getElementById("spinner");
+
 var game = document.getElementById("game");
 var choices=Array.from(document.getElementsByClassName('proposition-content'));
 var questionText=document.getElementById('questionText');
