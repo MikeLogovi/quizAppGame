@@ -65,21 +65,32 @@ let questionsAvailable=[];
 
 // Saving game
 var MAX_QUESTION=10;
+var all=[];
+var t=20;
+var startTime =()=>{
+    
+    time.innerText=`${t}s`
+    t--;
+    if(t==-1){
+         t=20;
+         time.innerText=`${t}s`
+         stopTime();
+         getNewQuestion();
+     }
+}
+var stopTime=()=>{
+    var i;
+    for(i=0;i<all.length;i++)all[i].clearInterval(all[i]);
+}
 getNewQuestion= ()=>{
-    clearInterval();
+    clearInterval(startTime);
     if(questionsAvailable.length==0 ||( (MAX_QUESTION+1)===numberOfQuesions))
         document.location.assign("/quizAppGame/end.html");
     else{
         var t=20;
-        setInterval(()=>{
-            time.innerText=`${t}s`
-            t--;
-            if(t==-1){
-                t=20;
-                time.innerText=`${t}s`
-                getNewQuestion();
-            }
-        },1000)
+        all.push(setInterval(()=>{
+           startTime();
+        },1000))
         spinner.classList.remove("hidden");
         game.classList.add("hidden");
         setTimeout(()=>{
@@ -106,6 +117,7 @@ getNewQuestion= ()=>{
 }
 choices.forEach(choice=>{
     choice.addEventListener("click",(e)=>{
+        
         var clickedChoice=e.target;
         var numberClicked=clickedChoice.dataset["number"];
         var appliedClass="incorrect";
@@ -116,6 +128,8 @@ choices.forEach(choice=>{
         }
         scoreText.innerText=""+score;
         clickedChoice.classList.add(appliedClass);
+        t=20;
+        stopTime();
         setTimeout(()=>{
             clickedChoice.classList.remove(appliedClass);
                 getNewQuestion();
