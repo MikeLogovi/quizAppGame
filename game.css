@@ -22,7 +22,7 @@
     box-shadow: 0rem 0.1rem 1.4rem 0.2rem rgba(86,185,235,0.5);
 }
 #score{
-    font-size:10rem;
+    font-size:5.4rem;
     color:rgb(40,167, 69);
     
 }
@@ -33,4 +33,19 @@
 .incorrect{
     color:white;
     background-color:rgb(220,53, 69);
+}
+#progress{
+    width:35rem;
+    height:7rem;
+    border:0.1rem solid#01579B;
+    margin-bottom:5rem;
+}
+#progressStatus{
+    width:0%;
+    background-color:rgb(40,167, 69);
+    height:100%;
+}
+#timing span{
+    font-size:5.4rem;
+    color:#E53935;
 }

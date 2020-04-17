@@ -85,3 +85,51 @@ h3{
     box-shadow:none;
     cursor:none;
 }
+
+@keyframes spin{
+    0%{
+        transform:rotate(0deg);
+    }
+    100%{
+        transform:rotate(360deg);
+    }
+}
+#spinner{
+  
+    text-align:center;
+    height:50px;
+    width:50px;
+    border: 0.5rem solid white;
+    border-top: 0.5rem solid #01579B;
+    border-radius:50%;
+    animation: spin 2s linear infinite;
+}
+.hidden{
+    visibility: hidden;
+}
+input{
+    border:none;
+    margin-bottom:1rem;
+    width:20rem;
+    height:5rem;
+    padding:1.5rem;
+    cursor:pointer;
+}
+input::placeholder{
+    color:#56a5eb;
+    font-size:1.5rem;
+    text-align:center;
+}
+li{
+    list-style:none;
+    font-size:2rem;
+    margin-bottom:1rem;
+    font-weight:bold;
+}
+li:last-child{
+    margin-bottom:5rem;
+}
+.heads{
+    display:flex;
+    justify-content:space-between;
+}

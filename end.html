@@ -3,9 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="app.css"/>
     <title>QuizGame</title>
 </head>
 <body>
-    We finish the game
+    <div class="container">
+        <div class="end flex-center flex-column">
+            <h1>Save your score</h1>
+              <form name="form" class="flex-center flex-column">
+                    <input type="text" id="username" placeholder="Username"/>
+                    <input type="submit" value="Save" id="submit" class="btn"/>
+                    <a href="game.html" class="btn">Play again</a>
+                    <a href="index.html" class="btn">Home</a>
+              </form>
+        </div>
+    </div>
+    <script src="save.js"></script>
+
 </body>
 </html>
