@@ -1,3 +1,6 @@
+#questionText{
+    font-size:2rem;
+}
 .proposition-container{
     display:flex;
     width:100%;
@@ -48,4 +51,20 @@
 #timing span{
     font-size:3rem;
     color:#E53935;
+}
+.head{
+    display:flex;
+    justify-content:space-around;
+
+}
+
+.head1{
+    display:flex;
+    flex-direction:column;
+    justify-content:space-around;
+}
+.head2{
+    display:flex;
+    flex-direction:column;
+    justify-content:space-around;
 }
